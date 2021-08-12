@@ -52,7 +52,7 @@ class TriviaTestCase(unittest.TestCase):
         self.assertEqual(data['success'], False)
         self.assertEqual(data['message'], 'resource not found')
 
-    def test_404_sent_requesting_non_existiing_category(self):
+    def test_404_sent_requesting_non_existing_category(self):
         res = self.client().get('/categories/9999')
         data = json.loads(res.data)
 
