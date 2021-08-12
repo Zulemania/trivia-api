@@ -63,10 +63,9 @@ One note before you delve into your tasks: for each endpoint you are expected to
 
 
 ## API Documentation
-```
+
 Reference Endpoint
-
-
+```
 
 
 GET '/api/v1.0/categories'
