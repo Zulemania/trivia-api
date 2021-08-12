@@ -67,6 +67,7 @@ def create_app(test_config=None):
   ten questions per page and pagination at the bottom of the screen for three pages.
   Clicking on the page numbers should update the questions. 
   '''
+
   @app.route('/questions')
   def retrieve_questions():
     selection = Question.query.order_by(Question.id).all()
@@ -85,13 +86,16 @@ def create_app(test_config=None):
       'current_category': None
     })
 
+
   '''
-  @TODO: 
+  
   Create an endpoint to DELETE question using a question ID. 
 
   TEST: When you click the trash icon next to a question, the question will be removed.
   This removal will persist in the database and when you refresh the page. 
   '''
+
+
 
   '''
   @TODO: 
