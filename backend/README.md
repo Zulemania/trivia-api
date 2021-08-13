@@ -88,7 +88,7 @@ GET '\categories'
 GET '\questions' 
 - Fetches a paginated dictionary of allquestions 
 - Request Arguements: None
-- Example request: curl http://127.0.0.1:5000/questions/
+- Example request: curl http://127.0.0.1:5000/questions
 
 ```
 {
