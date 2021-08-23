@@ -104,7 +104,8 @@ def create_app(test_config=None):
         'success': True,
         'deleted': question_id,
       })
-    except:
+    except Exception as error:
+      print(error)
       abort(422)
 
 
@@ -133,7 +134,8 @@ def create_app(test_config=None):
     new_category = body.get('category')
 
     try:
-      question = Question(question=new_question, answer=new_answer, difficulty=new_difficulty, category=new_category)
+      question = Question(question=new_question, answer=new_answer, 
+                 difficulty=new_difficulty, category=new_category)
       question.insert()
 
       return jsonify({
@@ -141,7 +143,8 @@ def create_app(test_config=None):
         'created': question.id,
       })
 
-    except:
+    except Exception as error:
+      print(error)
       abort(422)
 
   '''
@@ -194,7 +197,8 @@ def create_app(test_config=None):
         'total_questions': len(questions),
         'current_category': category_id
       })
-    except:
+    except Exception as error:
+      print(error)
       abort(404)
 
 
@@ -237,8 +241,8 @@ def create_app(test_config=None):
         'success': True,
         'question': new_question
       })
-    except:
-      abort(422)
+    except Exception as error:
+      print(422)
 
   '''
   @TODO: 
