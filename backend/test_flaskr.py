@@ -164,7 +164,7 @@ class TriviaTestCase(unittest.TestCase):
         self.assertEqual(data['message'], "resource not found")
 
     def test_play_quiz(self):
-        new_quiz_round = {'previous_questions': [], 'quiz_category': {'type': 'Entertainment', 'id': 5}}
+        new_quiz_round = {'previous_questions': [], 'quiz_category': {'type': 'Geography', 'id': 2}}
         res = self.client().post('/quizzes', json=new_quiz_round)
         data = json.loads(res.data)
 
