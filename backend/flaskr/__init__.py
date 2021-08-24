@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 import random
 
-from models import setup_db, Question, Category
+from models import setup_db, Question, Category, db
 
 QUESTIONS_PER_PAGE = 10
 
@@ -104,9 +104,11 @@ def create_app(test_config=None):
         'success': True,
         'deleted': question_id,
       })
-    except Exception as error:
-      print(error)
-      abort(422)
+    except Exception as e:
+      if '404' in str(e):
+        abort(404)
+      else:
+        abort(422)
 
 
 
@@ -143,8 +145,7 @@ def create_app(test_config=None):
         'created': question.id,
       })
 
-    except Exception as error:
-      print(error)
+    except Exception:
       abort(422)
 
   '''
@@ -197,9 +198,11 @@ def create_app(test_config=None):
         'total_questions': len(questions),
         'current_category': category_id
       })
-    except Exception as error:
-      print(error)
-      abort(404)
+    except Exception as e:
+      if '404' in str(e):
+        abort(404)
+      else:
+        abort(422)
 
 
   '''
@@ -241,8 +244,8 @@ def create_app(test_config=None):
         'success': True,
         'question': new_question
       })
-    except Exception as error:
-      print(422)
+    except Exception:
+      abort(422)
 
   '''
   @TODO: 
